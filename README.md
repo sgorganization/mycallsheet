@@ -1,4 +1,4 @@
 mycallsheet
 ===========
 
-This project is mainly focused for cini field call sheet maintainance
+This project is mainly focused for cini field call sheet maintenance

@@ -85,10 +85,10 @@ public class UserDetailsDaoImpl extends JdbcDaoSupport implements UserDetailsDao
 						}
 						
 					});
+			return userAttempts;
 		}catch(Exception e){
-			
-		}
-		return null;
+			return null;	
+		}		
 	}
 	
 	public boolean isUserExists(String userName){

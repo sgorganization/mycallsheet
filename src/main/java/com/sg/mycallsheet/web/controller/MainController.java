@@ -69,7 +69,7 @@ public class MainController {
 	}
 	
 	//For 403 Access Denied Page
-	@RequestMapping(value="/403", method=RequestMethod.GET)
+	@RequestMapping(value="/403")
 	public ModelAndView accessDenied(){
 		ModelAndView model = new ModelAndView();
 		
@@ -78,7 +78,7 @@ public class MainController {
 			UserDetails userDetail = (UserDetails) auth.getPrincipal();
 			System.out.println(userDetail);
 			
-			model.addObject("username",userDetail.getUsername());
+			model.addObject("userName",userDetail.getUsername());
 		}
 		model.setViewName("403");
 		return model;

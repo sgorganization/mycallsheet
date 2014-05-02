@@ -44,7 +44,7 @@
 			<div class=error>${msg}</div>
 		</c:if>
 		
-		<form name='loginForm' action="<c:url value='/j_spring_security_check'/>" method="post">
+		<form name='loginForm' action="<c:url value='/j_spring_security_check'/>" method="POST">
 			<table>
 				<tr>
 					<td>User Name:</td>
