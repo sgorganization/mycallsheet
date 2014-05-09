@@ -1,0 +1,4 @@
+Reference:
+-----------
+http://www.mkyong.com/spring-security/spring-security-limit-login-attempts-example/
+http://www.dineshonjava.com/2012/12/spring-3-mvc-tiles-plugin-with-example.html#.U2dw64GSy1U
