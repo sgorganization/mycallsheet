@@ -1,4 +1,7 @@
 mycallsheet
 ===========
 
-This project is mainly focused for cini field call sheet maintenance
+This is for spring simple form handling reference site
+http://notetipsblog.com/NoteTipsBlog/index.html
+
+with out hibernate and tiles its working.
