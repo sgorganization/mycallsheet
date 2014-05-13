@@ -11,6 +11,12 @@
         .simpleformstyle,  th, td {
             border: 0px;
         }
+        
+        .invalid{
+        	border: 1px red; padding:15px;
+        	color: red;
+        	font-style: italic;
+        }
 </style>
 <html>
 <head>

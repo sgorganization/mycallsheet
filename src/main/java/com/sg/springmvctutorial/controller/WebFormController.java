@@ -61,15 +61,14 @@ public class WebFormController {
 	public String registerNewTravelTrip(@Valid @ModelAttribute("newTravelTrip") TravelTrip newTravelTrip,
 			BindingResult result,Model model){
 		if(!result.hasErrors()){
-			travelTripDao.register(newTravelTrip);
+			travelTripDao.register(newTravelTrip);			
+			model.addAttribute("travelTripList", travelTripDao.findAll());
 			//return "redirect:/";
-			//model.addAttribute("newTravelTrip",new TravelTrip());
+			return "index";
 		}else {
-			model.addAttribute("travelTripList", travelTripDao.findAll());	  
+			return "addTravelTrip";
 	    }
-		model.addAttribute("travelTripList",travelTripDao.findAll());		
-		
-		return "index";
+		//model.addAttribute("travelTripList",travelTripDao.findAll());	
 	}
 	
 	@RequestMapping(value="/{tripID}/deleteTravelTrip", method = RequestMethod.GET)
@@ -94,16 +93,22 @@ public class WebFormController {
 	public String editTravelTrip(@PathVariable("tripID") String tripID,
 			@Valid @ModelAttribute("editTravelTrip") TravelTrip editTravelTrip,
 			BindingResult result, Model model){
-		TravelTrip tempTravelTrip = travelTripDao.findById(Integer.parseInt(tripID));
-		tempTravelTrip.setCountry(editTravelTrip.getCountry());
-		tempTravelTrip.setCity(editTravelTrip.getCity());
-	    tempTravelTrip.setFromDate(editTravelTrip.getFromDate());
-	    tempTravelTrip.setToDate(editTravelTrip.getToDate());
-	    tempTravelTrip.setBusiness(editTravelTrip.isBusiness());
-	    
-	    model.addAttribute("travelTripList",travelTripDao.findAll());
-		//return "redirect:/";
-	    return "index";
+		
+		if(!result.hasErrors()){
+			TravelTrip tempTravelTrip = travelTripDao.findById(Integer.parseInt(tripID));
+			tempTravelTrip.setCountry(editTravelTrip.getCountry());
+			tempTravelTrip.setCity(editTravelTrip.getCity());
+		    tempTravelTrip.setFromDate(editTravelTrip.getFromDate());
+		    tempTravelTrip.setToDate(editTravelTrip.getToDate());
+		    tempTravelTrip.setBusiness(editTravelTrip.isBusiness());
+		    
+		    model.addAttribute("travelTripList",travelTripDao.findAll());
+		  //return "redirect:/";
+		    return "index";
+		}else{
+			return "editTravelTrip";
+		}
+		
 	}
 	
 	@RequestMapping(value="/{tripID}/detailsTravelTrip",method = RequestMethod.GET)

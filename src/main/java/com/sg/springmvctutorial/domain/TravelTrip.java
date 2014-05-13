@@ -1,11 +1,37 @@
 package com.sg.springmvctutorial.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class TravelTrip {
+	
+	//@Id
+	//@GeneratedValue
 	private int id;
+	
+	@NotNull
+	@Size(min=5,max=25)
+	@Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
 	private String country;
+	
+	@NotNull
+    @Size(min = 5, max = 25)
+    @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
 	private String city;
+	
+	@NotNull
+    @NotEmpty
 	private String fromDate;
+	
+	@NotNull
+    @NotEmpty
 	private String toDate;
+	
 	private boolean business;
 	
 	
